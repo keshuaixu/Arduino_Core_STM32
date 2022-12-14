@@ -9,7 +9,7 @@
   *          This file contains:
   *           - Data structures and the address mapping for all peripherals
   *           - Peripheral's registers declarations and bits definition
-  *           - Macros to access peripheral’s registers hardware
+  *           - Macros to access peripheralï¿½s registers hardware
   *
   ******************************************************************************
   * @attention
@@ -1080,8 +1080,13 @@ typedef struct
 #define RCC_CFGR_PLLMULL15_Pos               (18U)
 #define RCC_CFGR_PLLMULL15_Msk               (0xDUL << RCC_CFGR_PLLMULL15_Pos)  /*!< 0x00340000 */
 #define RCC_CFGR_PLLMULL15                   RCC_CFGR_PLLMULL15_Msk            /*!< PLL input clock*15 */
+#ifdef GD32_HACK
+#define RCC_CFGR_PLLMULL16_Pos               (18U)
+#define RCC_CFGR_PLLMULL16_Msk               (0b1101UL << 18)|(0x1ul << 29) 
+#else
 #define RCC_CFGR_PLLMULL16_Pos               (19U)
 #define RCC_CFGR_PLLMULL16_Msk               (0x7UL << RCC_CFGR_PLLMULL16_Pos)  /*!< 0x00380000 */
+#endif
 #define RCC_CFGR_PLLMULL16                   RCC_CFGR_PLLMULL16_Msk            /*!< PLL input clock*16 */
 #define RCC_CFGR_USBPRE_Pos                  (22U)
 #define RCC_CFGR_USBPRE_Msk                  (0x1UL << RCC_CFGR_USBPRE_Pos)     /*!< 0x00400000 */
